@@ -1,2 +1,2 @@
-# Cedar-PHP
-Miiverse clone made in PHP.
+# Caustica
+Miiverse clone made in PHP and based on Cedar
