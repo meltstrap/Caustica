@@ -80,13 +80,7 @@ if ($post['deleted'] == 1 && $post['post_by_id'] != $_SESSION['user_id']) {
     $result_count = $yeah_count->get_result();
     $yeah_amount = $result_count->fetch_assoc();
 
-    $nah_count = $dbc->prepare('SELECT COUNT(nah_by) FROM nahs WHERE type = 0 AND nah_post = ?');
-    $nah_count->bind_param('i', $post['id']);
-    $nah_count->execute();
-    $result_count = $nah_count->get_result();
-    $nah_amount = $result_count->fetch_assoc();
-
-    $yeahs = $yeah_amount['COUNT(yeah_by)'] - $nah_amount['COUNT(nah_by)'];
+    $yeahs = $yeah_amount['COUNT(yeah_by)'];
 
         echo '<button class="yeah symbol';
 
@@ -116,30 +110,11 @@ if ($post['deleted'] == 1 && $post['post_by_id'] != $_SESSION['user_id']) {
 
 
 
-    echo '<button class="nah symbol';
-
-    if (!empty($_SESSION['signed_in']) && checkNahAdded($post['id'], 0, $_SESSION['user_id'])) {
-        echo ' nah-added';
-    }
-
-    echo '"';
-
-    if (empty($_SESSION['signed_in']) || checkPostCreator($post['id'], $_SESSION['user_id'])) {
-        echo ' disabled ';
-    }
-
-    echo 'id="'. $post['id'] .'" data-track-label="0"><span class="nah-button-text">';
-
-    if (!empty($_SESSION['signed_in']) && checkNahAdded($post['id'], 0, $_SESSION['user_id'])) {
-        echo 'Un-nah.';
-    } else {
-        echo 'Nah...';
-    }
 
     echo '</span></button>';
 
 
-    echo '<div class="empathy symbol" yeahs="'. $yeah_amount['COUNT(yeah_by)']  .'" nahs="'. $nah_amount['COUNT(nah_by)']  .'" title="'. $yeah_amount['COUNT(yeah_by)'] .' '. ($yeah_amount['COUNT(yeah_by)'] == 1 ? 'Yeah' : 'Yeahs') .' / '. $nah_amount['COUNT(nah_by)'] .' '. ($nah_amount['COUNT(nah_by)'] == 1 ? 'Nah' : 'Nahs') .'"><span class="yeah-count">'. $yeahs .'</span></div>';
+    echo '<div class="empathy symbol" yeahs="'. $yeah_amount['COUNT(yeah_by)']  .'" title="'. $yeah_amount['COUNT(yeah_by)'] .' '. ($yeah_amount['COUNT(yeah_by)'] == 1 ? 'Yeah' : 'Yeahs'). $yeahs .'</span></div>';
 
     $reply_count = $dbc->prepare('SELECT COUNT(reply_id) FROM replies WHERE reply_post = ? AND deleted = 0');
     $reply_count->bind_param('i', $post['id']);

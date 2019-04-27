@@ -93,13 +93,8 @@ if ($user_result->num_rows == 0){
 			    	$result_count = $yeah_count->get_result();
 			    	$yeah_amount = $result_count->fetch_assoc();
 
-			    	$nah_count = $dbc->prepare('SELECT COUNT(nah_by) FROM nahs WHERE type = 1 AND nah_post = ?');
-			    	$nah_count->bind_param('i', $replies['reply_id']);
-			    	$nah_count->execute();
-			    	$result_count = $nah_count->get_result();
-			    	$nah_amount = $result_count->fetch_assoc();
 
-			    	$yeahs = $yeah_amount['COUNT(yeah_by)'] - $nah_amount['COUNT(nah_by)'];
+			    	$yeahs = $yeah_amount['COUNT(yeah_by)'];
 
 			echo '<button class="yeah symbol';
 
@@ -126,9 +121,6 @@ if ($user_result->num_rows == 0){
 
 			echo '<button class="nah symbol';
 
-			if (!empty($_SESSION['signed_in']) && checkNahAdded($replies['reply_id'], 1, $_SESSION['user_id'])) {
-				echo ' nah-added';
-			}
 
 			echo '"'; 
 
@@ -138,17 +130,11 @@ if ($user_result->num_rows == 0){
 
 			echo 'id="'. $replies['reply_id'] .'" data-track-label="1"><span class="nah-button-text">';
 
-			if (!empty($_SESSION['signed_in']) && checkNahAdded($replies['reply_id'], 1, $_SESSION['user_id'])) {
-				echo 'Un-nah.';
-			} else {
-				echo 'Nah...';
-			}
-
 			echo '</span></button>';
 
 
 
-			echo '<div class="empathy symbol" yeahs="'. $yeah_amount['COUNT(yeah_by)']  .'" nahs="'. $nah_amount['COUNT(nah_by)']  .'" title="'. $yeah_amount['COUNT(yeah_by)'] .' '. ($yeah_amount['COUNT(yeah_by)'] == 1 ? 'Yeah' : 'Yeahs') .' / '. $nah_amount['COUNT(nah_by)'] .' '. ($nah_amount['COUNT(nah_by)'] == 1 ? 'Nah' : 'Nahs') .'"><span class="yeah-count">'. $yeahs .'</span></div></div></div></div>';
+			echo '<div class="empathy symbol" yeahs="'. $yeah_amount['COUNT(yeah_by)'] .'" title="'. $yeah_amount['COUNT(yeah_by)'] .' '. ($yeah_amount['COUNT(yeah_by)'] == 1 ? 'Yeah' : 'Yeahs') .'"<span class="yeah-count">'. $yeahs .'</span></div></div>';
 		}
 
 	} else {

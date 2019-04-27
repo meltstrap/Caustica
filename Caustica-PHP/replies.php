@@ -46,13 +46,7 @@ $yeah_count->execute();
 $result_count = $yeah_count->get_result();
 $yeah_amount = $result_count->fetch_assoc();
 
-$nah_count = $dbc->prepare('SELECT COUNT(nah_by) FROM nahs WHERE type = 1 AND nah_post = ?');
-$nah_count->bind_param('i', $reply['reply_id']);
-$nah_count->execute();
-$result_count = $nah_count->get_result();
-$nah_amount = $result_count->fetch_assoc();
-
-$yeahs = $yeah_amount['COUNT(yeah_by)'] - $nah_amount['COUNT(nah_by)'];
+$yeahs = $yeah_amount['COUNT(yeah_by)'];
 
 echo '
     	<div class="main-column"><div class="post-list-outline">
@@ -113,12 +107,7 @@ if (!empty($_SESSION['signed_in']) && checkYeahAdded($reply['reply_id'], 'reply'
     echo 'Yeah!';
 }
 
-echo '</span></button>
-<button class="nah symbol';
 
-if (!empty($_SESSION['signed_in']) && checkNahAdded($reply['reply_id'], 1, $_SESSION['user_id'])) {
-    echo ' nah-added';
-}
 
 echo '"';
 
@@ -126,16 +115,11 @@ if (empty($_SESSION['signed_in']) || checkReplyCreator($reply['reply_id'], $_SES
     echo ' disabled ';
 }
 
-echo 'id="'. $reply['reply_id'] .'" data-track-label="1"><span class="nah-button-text">';
+echo 'id="'. $reply['reply_id'] .'" data-track-label="1">';
 
-if (!empty($_SESSION['signed_in']) && checkNahAdded($reply['reply_id'], 1, $_SESSION['user_id'])) {
-    echo 'Un-nah.';
-} else {
-    echo 'Nah...';
-}
 
 echo '</span></button>
-<div class="empathy symbol" yeahs="'. $yeah_amount['COUNT(yeah_by)']  .'" nahs="'. $nah_amount['COUNT(nah_by)']  .'" title="'. $yeah_amount['COUNT(yeah_by)'] .' '. ($yeah_amount['COUNT(yeah_by)'] == 1 ? 'Yeah' : 'Yeahs') .' / '. $nah_amount['COUNT(nah_by)'] .' '. ($nah_amount['COUNT(nah_by)'] == 1 ? 'Nah' : 'Nahs') .'"><span class="yeah-count">'. $yeahs .'</span></div></div>';
+<div class="empathy symbol" yeahs="'. $yeah_amount['COUNT(yeah_by)'] .'" title="'. $yeah_amount['COUNT(yeah_by)'] .' '. ($yeah_amount['COUNT(yeah_by)'] == 1 ? 'Yeah' : 'Yeahs') .'"<span class="yeah-count">'. $yeahs .'</span></div></div>';
 
 //yeah content
 $get_user = $dbc->prepare('SELECT user_name, user_face, user_level FROM users WHERE users.user_id = ?');

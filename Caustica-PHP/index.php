@@ -23,7 +23,6 @@ $router->addRoutes(array(
     array('GET', '/users/[*:action]/posts', 'users.php', 'Users'),
     array('GET', '/users/[*:action]/replies', 'userReplies.php', 'User-replies'),
     array('GET', '/users/[*:action]/yeahs', 'userYeahs.php', 'User-yeahs'),
-    array('GET', '/users/[*:action]/nahs', 'userNahs.php', 'User-nahs'),
     array('GET', '/users/[*:action]/following', 'userFollowing.php', 'Following'),
     array('GET', '/users/[*:action]/followers', 'userFollowers.php', 'Followers'),
     array('GET', '/communities/favorites', 'favorites.php', 'Your-Favorites'),
