@@ -8,7 +8,7 @@ $search_reply->execute();
 $reply_result = $search_reply->get_result();
 
 if ($reply_result->num_rows == 0) {
-    exit('<title>Cedar - Error</title><div class="no-content track-error" data-track-error="404"><div><p>The reply could not be found.</p></div></div>');
+    exit('<title>Caustica - Error</title><div class="no-content track-error" data-track-error="404"><div><p>The reply could not be found.</p></div></div>');
 }
 
 $reply = $reply_result->fetch_assoc();
@@ -67,7 +67,7 @@ echo '
     	      <a href="/titles/'. $title['title_id'] .'">
     	        <img src="'. $title['title_icon'] .'" class="community-icon">'. $title['title_name'] .'</a></p>
               <div id="user-content">
-              <title>Cedar - '. htmlspecialchars($user['nickname'], ENT_QUOTES) .'\'s Comment</title>
+              <title>Caustica - '. htmlspecialchars($user['nickname'], ENT_QUOTES) .'\'s Comment</title>
         <a href="/users/'. $user['user_name'] .'/posts" class="icon-container'.($user['user_level'] > 1 ? ' verified' : '').'"><img src="'. printFace($user['user_face'], $reply['feeling_id']) .'" id="icon"></a>
         <div class="user-name-content">
           <p class="user-name"><a href="/users/'. $user['user_name'] .'/posts" '.(isset($user['name_color']) ? 'style="color: '. $user['name_color'] .'"' : '').'>'. htmlspecialchars($user['nickname'], ENT_QUOTES) .'</a></p>

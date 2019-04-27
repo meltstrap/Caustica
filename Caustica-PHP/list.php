@@ -9,7 +9,7 @@ $title_result = $get_title->get_result();
 
 if ($title_result->num_rows == 0) {
     printHeader(3);
-    exit('<title>Cedar - Error</title><div class="no-content track-error" data-track-error="404"><div><p>The community could not be found.</p></div></div>');
+    exit('<title>Caustica - Error</title><div class="no-content track-error" data-track-error="404"><div><p>The community could not be found.</p></div></div>');
 }
 
 $title = $title_result->fetch_array();
@@ -22,7 +22,7 @@ if ((isset($_GET['offset']) && is_numeric($_GET['offset'])) && isset($_GET['date
     $get_posts = $dbc->prepare('SELECT * FROM posts INNER JOIN users ON user_id = post_by_id WHERE post_title = ? AND date_time < ? AND deleted = 0 ORDER BY date_time DESC LIMIT 25 OFFSET ?');
     $get_posts->bind_param('isi', $title_id, $dateTime, $offset);
 } else {
-    $tabTitle = 'Cedar - '. $title['title_name'];
+    $tabTitle = 'Caustica - '. $title['title_name'];
     printHeader(3);
 
     echo '<script>var loadOnScroll=true;</script>

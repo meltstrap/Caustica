@@ -19,7 +19,7 @@ if(!isset($_GET['query'])){
 			$searched_users_result = $get_searched_users->get_result();
 		} else {
 
-			$tabTitle = 'Cedar - Search Users';
+			$tabTitle = 'Caustica - Search Users';
 			printHeader('');
 
 			echo '<script>var loadOnScroll=true;</script>';
@@ -37,7 +37,7 @@ if(!isset($_GET['query'])){
 
 			echo '<div class="main-column"><div class="post-list-outline"><h2 class="label">Search Users</h2>
 			<form class="search user-search" action="/users" method="GET">
-			  <input type="text" name="query" value="'.htmlspecialchars($_GET['query'], ENT_QUOTES).'" placeholder="Seth, CedarSeth, etc." minlength="1" maxlength="16">
+			  <input type="text" name="query" value="'.htmlspecialchars($_GET['query'], ENT_QUOTES).'" placeholder="Seth, CausticaSeth, etc." minlength="1" maxlength="16">
 			  <input type="submit" value="q" title="Search">
 			</form>';
 

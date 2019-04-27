@@ -46,7 +46,7 @@ if (empty($_SESSION['signed_in'])) {
         <body>
         <div class="hb-contents-wrapper"><div class="hb-container hb-l-inside">
             <h2>Sign Up</h2>
-            <p>Create a User ID for Cedar.</p>
+            <p>Create a User ID for Caustica.</p>
         </div>
 
         <form method="post" enctype="multipart/form-data">
@@ -54,7 +54,7 @@ if (empty($_SESSION['signed_in'])) {
 
                 <div class="auth-input-double">               
                     <label>
-                        <input type="text" name="username" maxlength="16" title="Cedar ID" placeholder="User ID" value="">
+                        <input type="text" name="username" maxlength="16" title="Caustica ID" placeholder="User ID" value="">
                     </label>
                     <label>
                         <input type="password" name="password" maxlength="16" title="Password" placeholder="Password">

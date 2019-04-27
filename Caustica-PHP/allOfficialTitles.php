@@ -2,7 +2,7 @@
 require_once('lib/htm.php');
 require_once('lib/htmUsers.php');
 
-$tabTitle = 'Cedar - Community List(All Communities)';
+$tabTitle = 'Caustica - Community List(All Communities)';
 
 printHeader(3);
 

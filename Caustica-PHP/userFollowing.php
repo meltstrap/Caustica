@@ -16,7 +16,7 @@ if ($user_result->num_rows == 0){
 
 	if(!(isset($_GET['offset']) && is_numeric($_GET['offset']))){
 
-		$tabTitle = 'Cedar - '. $user['nickname'] .'\'s Profile';
+		$tabTitle = 'Caustica - '. $user['nickname'] .'\'s Profile';
 
 		printHeader('');
 

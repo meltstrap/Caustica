@@ -8,7 +8,7 @@ $post_result = $search_post->get_result();
 
 if ($post_result->num_rows == 0) {
     printHeader(0);
-    exit('<title>Cedar - Error</title><div class="no-content track-error" data-track-error="404"><div><p>The post could not be found.</p></div></div>');
+    exit('<title>Caustica - Error</title><div class="no-content track-error" data-track-error="404"><div><p>The post could not be found.</p></div></div>');
 }
 
     $post = $post_result->fetch_assoc();
@@ -19,7 +19,7 @@ if ($post_result->num_rows == 0) {
     $user_result = $get_user->get_result();
     $user = $user_result->fetch_assoc();
 
-    $tabTitle = 'Cedar - '. htmlspecialchars($user['nickname'], ENT_QUOTES) .'\'s post';
+    $tabTitle = 'Caustica - '. htmlspecialchars($user['nickname'], ENT_QUOTES) .'\'s post';
 
     printHeader('');
 
@@ -39,9 +39,9 @@ if ($post['deleted'] == 1 && $post['post_by_id'] != $_SESSION['user_id']) {
     $title_result = $get_title->get_result();
     $title = $title_result->fetch_assoc();
 
-    echo '<meta property="og:title" content="Post to '. $title['title_name'] .' - Cedar">
+    echo '<meta property="og:title" content="Post to '. $title['title_name'] .' - Caustica">
 		<meta property="og:url" content="https://suckmyass.000webhostapp.com/posts/'. $post['id'] .'">
-		<meta property="og:description" content="'. htmlspecialchars($user['nickname'], ENT_QUOTES) .' : '. (mb_strlen($post['text']) > 46 ? htmlspecialchars(mb_substr($post['text'], 0, 47)) .'...' : htmlspecialchars($post['text'], ENT_QUOTES)) .' - Cedar">
+		<meta property="og:description" content="'. htmlspecialchars($user['nickname'], ENT_QUOTES) .' : '. (mb_strlen($post['text']) > 46 ? htmlspecialchars(mb_substr($post['text'], 0, 47)) .'...' : htmlspecialchars($post['text'], ENT_QUOTES)) .' - Caustica">
 
 		<header class="community-container">
 		  <h1 class="community-container-heading">

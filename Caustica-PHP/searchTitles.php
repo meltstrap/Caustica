@@ -10,7 +10,7 @@ if(!isset($_GET['query'])){
 		echo 'either too big or too small lmao'; 
 	} else {
 
-		$tabTitle = 'Cedar - Search Communities';
+		$tabTitle = 'Caustica - Search Communities';
 
 		printHeader(3);
 

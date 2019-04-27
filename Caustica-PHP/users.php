@@ -16,7 +16,7 @@ if ($user_result->num_rows == 0){
 
 	if(!((isset($_GET['offset']) && is_numeric($_GET['offset'])) && isset($_GET['dateTime']))){
 
-		$tabTitle = 'Cedar - '. htmlspecialchars($user['nickname'], ENT_QUOTES) .'\'s Profile';
+		$tabTitle = 'Caustica - '. htmlspecialchars($user['nickname'], ENT_QUOTES) .'\'s Profile';
 
 		if (empty($_SESSION['signed_in']) || $_SESSION['user_id'] == $user['user_id']) {printHeader(1);} else {printHeader('');}
 

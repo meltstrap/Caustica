@@ -2,7 +2,7 @@
 require_once('lib/htm.php');
 require_once('lib/connect.php');
 
-$tabTitle = 'Cedar - Community List';
+$tabTitle = 'Caustica - Community List';
 
     printHeader(3);
 ?>
@@ -24,8 +24,8 @@ $tabTitle = 'Cedar - Community List';
         </div>
         <iframe src="https://discordapp.com/widget?id=406561770359226378&theme=<?php echo (isset($_COOKIE['dark-mode']) ? 'dark' : 'light'); ?>" style="width: inherit;" height="500" allowtransparency="true" frameborder="0"></iframe>
         <div class="post-list-outline" style="text-align: center">
-            <h2 class="label">What is Cedar?</h2>
-            <p style="width: 90%; display: inine-block; padding: 10px;">Cedar is a Miiverse clone written by Seth and Eric. Cedar is open source: https://github.com/EnergeticBark/Cedar-PHP</p>
+            <h2 class="label">What is Caustica?</h2>
+            <p style="width: 90%; display: inine-block; padding: 10px;">Caustica is a Miiverse clone based on Caustica and forked by meltstrap. Caustica is open source: https://github.com/meltstrap/Caustica</p>
         </div>
 
         <button type="button" onclick="$.pjax({url: '/titles/new', container: '#main-body'});" class="symbol button create-button" style="padding: 14px 60px;">

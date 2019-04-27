@@ -2,7 +2,7 @@
 require_once('lib/htm.php');
 require_once('lib/htmUsers.php');
 
-$tabTitle = 'Cedar - Posts from Verified Users';
+$tabTitle = 'Caustica - Posts from Verified Users';
 
 printHeader(3);
 

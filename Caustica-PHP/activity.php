@@ -11,7 +11,7 @@ if ((isset($_GET['offset']) && is_numeric($_GET['offset'])) && isset($_GET['date
 	$get_posts->execute();
 	$posts_result = $get_posts->get_result();
 } else {
-	$tabTitle = 'Cedar - Activity Feed';
+	$tabTitle = 'Caustica - Activity Feed';
 
 	printHeader(2);
 

@@ -3,10 +3,10 @@ require_once('lib/htm.php');
 require_once('lib/htmUsers.php');
 
 if(empty($_SESSION['signed_in'])){
-	$tabTitle = 'Cedar';
+	$tabTitle = 'Caustica';
 	printHeader('');
-	echo '<div class="warning-content warning-content-forward"><div><strong>Welcome to Cedar!</strong><p>You must sign in to view this page.</p>
-    <a class="button" href="/">Cedar</a></div></div>';
+	echo '<div class="warning-content warning-content-forward"><div><strong>Welcome to Caustica!</strong><p>You must sign in to view this page.</p>
+    <a class="button" href="/">Caustica</a></div></div>';
 } else {
 
 	function validateDate($date, $format = 'Y-m-d H:i:s')
@@ -22,7 +22,7 @@ if(empty($_SESSION['signed_in'])){
 		$user_result = $get_user->get_result();
 		$user = $user_result->fetch_assoc();
 
-		$tabTitle = 'Cedar - Profile Settings';
+		$tabTitle = 'Caustica - Profile Settings';
 
 		printHeader('');
 

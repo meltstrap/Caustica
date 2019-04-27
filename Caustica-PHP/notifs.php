@@ -2,7 +2,7 @@
 require_once('lib/htm.php');
 require_once('lib/htmUsers.php');
 
-$tabTitle = 'Cedar - Notifications';
+$tabTitle = 'Caustica - Notifications';
 
 printHeader(4);
 
@@ -48,9 +48,9 @@ if (!$notifs_result->num_rows == 0) {
         if ($notif['notif_type'] == 5) {
             echo '
 			<p class="title">
-			  <span class="nick-name">Cedar Administration</span>
-			  <span class="id-name">cedar_admin</span></p>
-			<p class="text">You have received a notification from the Cedar administrators.';
+			  <span class="nick-name">Caustica Administration</span>
+			  <span class="id-name">Caustica_admin</span></p>
+			<p class="text">You have received a notification from the Caustica administrators.';
         } else {
             echo ($notif['notif_type'] == 4 ? 'Followed by ' : '').'<a href="/users/'. $user['user_name'] .'/posts" class="nick-name">'. htmlspecialchars($user['nickname'], ENT_QUOTES) .'</a>';
 

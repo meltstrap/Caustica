@@ -27,7 +27,7 @@ if((isset($_GET['offset']) && is_numeric($_GET['offset'])) && isset($_GET['date'
 		exit("<br/>Could not find community");
 	} else {
 		$title = $title_result->fetch_array();
-		echo '<script>var loadOnScroll=true;</script><title>Cedar - '. $title['title_name'] .'</title>
+		echo '<script>var loadOnScroll=true;</script><title>Caustica - '. $title['title_name'] .'</title>
 		  <div id="sidebar">
 		    <section class="sidebar-container" id="sidebar-community">
 		      <span id="sidebar-cover">

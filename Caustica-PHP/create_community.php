@@ -7,7 +7,7 @@ if (empty($_SESSION['signed_in'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-    $tabTitle = 'Cedar - Community Creation';
+    $tabTitle = 'Caustica - Community Creation';
     printHeader('');
     
     $get_user = $dbc->prepare('SELECT * FROM users INNER JOIN profiles ON profiles.user_id = users.user_id WHERE users.user_id = ? LIMIT 1');

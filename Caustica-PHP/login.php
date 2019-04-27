@@ -7,7 +7,7 @@ if(empty($_SESSION['signed_in'])){
 		<!DOCTYPE html>
         <html lang="en">
         <head>
-        	<title>Sign In to Cedar</title>
+        	<title>Sign In to Caustica</title>
         	<meta name="viewport" content="width=device-width,minimum-scale=1, maximum-scale=1">
         	<link rel="stylesheet" type="text/css" href="/assets/css/login.css">
         </head>
@@ -15,13 +15,13 @@ if(empty($_SESSION['signed_in'])){
         	<div class="hb-contents-wrapper">
         		<div class="hb-container hb-l-inside">
         			<h2>Sign In</h2>
-        			<p>Please sign in with a Cedar User ID to proceed.</p>
+        			<p>Please sign in with a Caustica User ID to proceed.</p>
         			<p>Or <a href="/signup">create an account</a>.</p>
         		</div>
         		<form method="post">
         			<div class="hb-container hb-l-inside-half hb-mg-top-none">              
         				<div class="auth-input-double">               
-        					<label><input type="text" name="username" maxlength="16" title="Cedar ID" placeholder="User ID" value=""></label>
+        					<label><input type="text" name="username" maxlength="16" title="Caustica ID" placeholder="User ID" value=""></label>
         					<label><input type="password" name="password" maxlength="16" title="Password" placeholder="Password"></label>
         				</div>
         				<input type="submit" name="submit" class="hb-btn hb-is-decide" style="margin-top: 4px;" id="btn_text" value="Sign In">

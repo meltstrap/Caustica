@@ -8,7 +8,7 @@ if (isset($action)) {
 	$get_user->execute();
 	$user_result = $get_user->get_result();
 	$user = $user_result->fetch_assoc();
-	$tabTitle = 'Cedar - '. $user['nickname'] .'\'s Favorite Communities';
+	$tabTitle = 'Caustica - '. $user['nickname'] .'\'s Favorite Communities';
 	printHeader('');
 } else {
 	$get_user = $dbc->prepare('SELECT * FROM users INNER JOIN profiles ON profiles.user_id = users.user_id WHERE users.user_id = ? LIMIT 1');
@@ -16,7 +16,7 @@ if (isset($action)) {
 	$get_user->execute();
 	$user_result = $get_user->get_result();
 	$user = $user_result->fetch_assoc();
-	$tabTitle = 'Cedar - Community List(Favorites)';
+	$tabTitle = 'Caustica - Community List(Favorites)';
 	printHeader(3);
 }
 

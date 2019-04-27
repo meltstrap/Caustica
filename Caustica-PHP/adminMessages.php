@@ -2,7 +2,7 @@
 require_once('lib/htm.php');
 require_once('lib/htmUsers.php');
 
-$tabTitle = 'Cedar - Notifications';
+$tabTitle = 'Caustica - Notifications';
 
 printHeader(4);
 
@@ -15,7 +15,7 @@ $user = $user_result->fetch_assoc();
 echo '<div id="sidebar" class="general-sidebar">';
 userContent($user, "");
 sidebarSetting();
-echo '</div><div class="main-column"><div class="post-list-outline"><h2 class="label">Messages Exchanged with Cedar Administration</h2><div class="list admin-messages">';
+echo '</div><div class="main-column"><div class="post-list-outline"><h2 class="label">Messages Exchanged with Caustica Administration</h2><div class="list admin-messages">';
 
 $get_admin_messages = $dbc->prepare('SELECT * FROM admin_messages WHERE admin_to = ? ORDER BY admin_date DESC LIMIT 50');
 $get_admin_messages->bind_param('i', $_SESSION['user_id']);
@@ -35,10 +35,10 @@ while($admin_message = $admin_messages_result->fetch_array()){
           echo $admin_message['admin_text'];
           break;
         case 1:
-          echo 'Your '.($admin_message['is_reply'] == 0 ? 'post' : 'reply').' was identified as spam, so it was removed. Continued violations may result in restrictions on your use of Cedar.';
+          echo 'Your '.($admin_message['is_reply'] == 0 ? 'post' : 'reply').' was identified as spam, so it was removed. Continued violations may result in restrictions on your use of Caustica.';
           break;
         case 2:
-          echo 'Your '.($admin_message['is_reply'] == 0 ? 'post' : 'reply').' contained sexually explicit content, so it was removed. Continued violations may result in restrictions on your use of Cedar.';
+          echo 'Your '.($admin_message['is_reply'] == 0 ? 'post' : 'reply').' contained sexually explicit content, so it was removed. Continued violations may result in restrictions on your use of Caustica.';
           break;
         }
 
