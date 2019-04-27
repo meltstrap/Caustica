@@ -126,7 +126,7 @@ function printHeader($on_page)
     <script src="/assets/js/favico.js"></script>
     <script src="/assets/js/tippy.all.min.js"></script>
     <script src="/assets/js/yeah.js"></script>
-    <meta property="og:site_name" content="Cedar">
+    <meta property="og:site_name" content="Caustica">
     <meta property="og:type" content="article">
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -178,9 +178,9 @@ function printHeader($on_page)
                 <li id="global-menu-my-menu"><button class="symbol js-open-global-my-menu open-global-my-menu"></button>
                     <menu id="global-my-menu" class="invisible none">
                         <li><a href="/settings/profile" class="symbol my-menu-profile-setting"><span>Profile Settings</span></a></li>
-                        <li><a href="/settings/account" class="symbol my-menu-miiverse-setting"><span>Cedar Settings</span></a></li>
+                        <li><a href="/settings/account" class="symbol my-menu-miiverse-setting"><span>Caustica Settings</span></a></li>
                         <li><a href="#" class="symbol my-menu-dark-toggle"><span>Dark Mode</span></a></a></li>
-                        <li><a href="/titles/<?= $user['title_id'] ?>" class="symbol my-menu-info"><span>Cedar Announcements</span></a></li>
+                        <li><a href="/titles/<?= $user['title_id'] ?>" class="symbol my-menu-info"><span>Caustica Announcements</span></a></li>
                         <?= ($user['user_level'] > 0 ? '<li><a href="/admin_panel" class="symbol my-menu-miiverse-setting"><span>Admin Panel</span></a></li>' : '') ?>
                         <li>
                             <form action="/logout" method="post" id="my-menu-logout" class="symbol">

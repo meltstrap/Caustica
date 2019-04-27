@@ -16,7 +16,7 @@ function mysql_machine_broke()
 }
 
 
-$dbc = @mysqli_connect('localhost', 'root', '', 'cedar');
+$dbc = @mysqli_connect('localhost', 'root', '', 'caustica');
 if (!$dbc) {
     mysql_machine_broke();
 }

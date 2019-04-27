@@ -136,8 +136,8 @@ function sidebarSetting()
     echo '<div class="sidebar-setting sidebar-container">
 		  <ul>
 
-			<li><a href="/settings/account" class="sidebar-menu-setting symbol"><span>Cedar Settings</span></a></li>
-			<li><a href="/titles/'.$announce['title_id'].'" class="sidebar-menu-info symbol"><span>Cedar Announcements</span></a></li>
+			<li><a href="/settings/account" class="sidebar-menu-setting symbol"><span>Caustica Settings</span></a></li>
+			<li><a href="/titles/'.$announce['title_id'].'" class="sidebar-menu-info symbol"><span>Caustica Announcements</span></a></li>
 	        
 		  </ul>
 		</div>';
