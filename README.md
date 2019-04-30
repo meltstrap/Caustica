@@ -17,6 +17,8 @@ I expect to finish this at the end of May or earlier if everything goes to plan.
 
 ## Thanks to
 
-EnergeticBark for the Cedar source code
-The Uiiverse team for all your help
-And you for checking this out!
+- EnergeticBark for the Cedar source code
+
+- The Uiiverse team for all your help
+
+- You for checking this out!
