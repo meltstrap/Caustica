@@ -1,11 +1,22 @@
 # Caustica
-A Miiverse clone made in PHP and based on Cedar
+A Miiverse clone made in PHP and based on Cedar.
 
 ## Features
--Theme engine
 
--Avatar registration
+- Miiverse-like experience
 
--Advanced drawing
+- Themes (you heard that right, you can change the style of the UI)
 
--More features coming soon!
+- Avatar-only registration
+
+- Advanced drawing (made right)
+
+## ETA
+
+I expect to finish this at the end of May or earlier if everything goes to plan.
+
+## Thanks to
+
+EnergeticBark for the Cedar source code
+The Uiiverse team for all your help
+And you for checking this out!
