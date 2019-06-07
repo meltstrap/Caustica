@@ -144,7 +144,7 @@ function printHeader($on_page)
         <div id="sub-body">
           <menu id="global-menu">
             <li id="global-menu-logo">
-                <h1><a href="/"><img src="/assets/img/cedar-logo.png" alt="Miiverse" width="120" height="30"></a></h1></li>
+                <h1><a href="/"><img src="/assets/img/caustica-logo.png" alt="Miiverse" width="120" height="30"></a></h1></li>
     <?php
 
 
