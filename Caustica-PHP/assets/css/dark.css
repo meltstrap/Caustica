@@ -262,7 +262,7 @@ form.search input[type="submit"] {
 }
 .accepting > span {
     background-color: rgba(255, 247, 179, 0);
-    color: #ACE33E;
+    color: #56711F;
 }
 .accepting > span:before {
     content: "• ";
