@@ -131,7 +131,7 @@ function sidebarSetting()
 
 function noUser()
 {
-    echo '<title>Cedar - Error</title><div class="no-content track-error" data-track-error="404"><div><p>The user could not be found.</p></div></div>';
+    echo '<title>Caustica - Error</title><div class="no-content track-error" data-track-error="404"><div><p>The user could not be found.</p></div></div>';
 }
 
 function userInfo($user)
