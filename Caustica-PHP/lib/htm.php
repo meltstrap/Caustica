@@ -86,7 +86,6 @@ function printHeader($on_page)
         .user-data h4 span {background-color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
         .sidebar-setting .sidebar-menu-post:before {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
         .sidebar-setting .sidebar-menu-empathies:before {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
-        .sidebar-setting .sidebar-menu-nahs:before {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
         h2.label {border-bottom: 3px solid hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
         .sidebar-setting .sidebar-menu-setting:before {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
         .sidebar-setting .sidebar-menu-info:before {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
@@ -95,8 +94,8 @@ function printHeader($on_page)
         #global-menu #global-my-menu .symbol:before {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
         .dialog .window-title {
             border-top: 1px solid hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);border-bottom: 1px solid hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);background: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
-        #post-meta .yeah-added + .nah + .empathy, .reply-meta .yeah-added + .nah + .empathy {color: hsl('.($HSL[0]).','.$HSL[1].'%,'.($HSL[2]).'%);}
-        #post-meta .yeah-added + .nah + .empathy:before, .reply-meta .yeah-added + .nah + .empathy:before {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
+        #post-meta .yeah-added + .empathy, .reply-meta .yeah-added + .empathy {color: hsl('.($HSL[0]).','.$HSL[1].'%,'.($HSL[2]).'%);}
+        #post-meta .yeah-added + .empathy:before, .reply-meta .yeah-added + .empathy:before {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
         .news-list a.link {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
         .user-sidebar .follow-button:before {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
         .user-sidebar .friend-button:before {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
@@ -264,13 +263,7 @@ function printPost($post, $reply_pre)
     $result_count = $yeah_count->get_result();
     $yeah_amount = $result_count->fetch_assoc();
 
-    $nah_count = $dbc->prepare('SELECT COUNT(nah_by) FROM nahs WHERE type = 0 AND nah_post = ?');
-    $nah_count->bind_param('i', $post['id']);
-    $nah_count->execute();
-    $result_count = $nah_count->get_result();
-    $nah_amount = $result_count->fetch_assoc();
-
-    $yeahs = $yeah_amount['COUNT(yeah_by)'] - $nah_amount['COUNT(nah_by)'];
+    $yeahs = $yeah_amount['COUNT(yeah_by)'];
 
 
 
@@ -300,30 +293,6 @@ function printPost($post, $reply_pre)
 
 
 
-
-
-
-
-    echo '<button class="nah symbol';
-
-    if (!empty($_SESSION['signed_in']) && checkNahAdded($post['id'], 0, $_SESSION['user_id'])) {
-        echo ' nah-added';
-    }
-
-    echo '"';
-
-    if (empty($_SESSION['signed_in']) || checkPostCreator($post['id'], $_SESSION['user_id'])) {
-        echo ' disabled ';
-    }
-
-    echo 'id="'. $post['id'] .'" data-track-label="0"><span class="nah-button-text">';
-
-    if (!empty($_SESSION['signed_in']) && checkNahAdded($post['id'], 0, $_SESSION['user_id'])) {
-        echo 'Un-nah.';
-    } else {
-        echo 'Nah...';
-    }
-
     echo '</span></button>';
 
 
@@ -333,7 +302,7 @@ function printPost($post, $reply_pre)
 
 
 
-    echo '<div class="empathy symbol" yeahs="'. $yeah_amount['COUNT(yeah_by)']  .'" nahs="'. $nah_amount['COUNT(nah_by)']  .'" title="'. $yeah_amount['COUNT(yeah_by)'] .' '. ($yeah_amount['COUNT(yeah_by)'] == 1 ? 'Yeah' : 'Yeahs') .' / '. $nah_amount['COUNT(nah_by)'] .' '. ($nah_amount['COUNT(nah_by)'] == 1 ? 'Nah' : 'Nahs') .'"><span class="yeah-count">'. $yeahs .'</span></div>';
+    echo '<div class="empathy symbol" yeahs="'. $yeah_amount['COUNT(yeah_by)']  .'" title="'. $yeah_amount['COUNT(yeah_by)'] .' '. ($yeah_amount['COUNT(yeah_by)'] == 1 ? 'Yeah' : 'Yeahs'). $yeahs .'</span></div>';
 
     $reply_count = $dbc->prepare('SELECT COUNT(reply_id) FROM replies WHERE reply_post = ? AND deleted = 0');
     $reply_count->bind_param('i', $post['id']);
@@ -418,21 +387,6 @@ function checkYeahAdded($post, $type, $user_id)
     }
 }
 
-function checkNahAdded($post, $type, $user_id)
-{
-    global $dbc;
-
-    $check_yeahed = $dbc->prepare('SELECT * FROM nahs WHERE nah_post = ? AND type = ? AND nah_by = ?');
-    $check_yeahed->bind_param('iii', $post, $type, $user_id);
-    $check_yeahed->execute();
-    $yeahed_result = $check_yeahed->get_result();
-
-    if (!$yeahed_result->num_rows == 0) {
-        return true;
-    } else {
-        return false;
-    }
-}
 
 function checkPostExists($post)
 {
@@ -549,13 +503,8 @@ function printReply($reply)
         $result_count = $yeah_count->get_result();
         $yeah_amount = $result_count->fetch_assoc();
 
-        $nah_count = $dbc->prepare('SELECT COUNT(nah_by) FROM nahs WHERE type = 1 AND nah_post = ?');
-        $nah_count->bind_param('i', $reply['reply_id']);
-        $nah_count->execute();
-        $result_count = $nah_count->get_result();
-        $nah_amount = $result_count->fetch_assoc();
 
-        $yeahs = $yeah_amount['COUNT(yeah_by)'] - $nah_amount['COUNT(nah_by)'];
+        $yeahs = $yeah_amount['COUNT(yeah_by)']];
 
 
 
@@ -587,11 +536,6 @@ function printReply($reply)
 
 
 
-        echo '<button class="nah symbol';
-
-        if (!empty($_SESSION['signed_in']) && checkNahAdded($reply['reply_id'], 1, $_SESSION['user_id'])) {
-            echo ' nah-added';
-        }
 
         echo '"';
 
@@ -599,17 +543,10 @@ function printReply($reply)
             echo ' disabled ';
         }
 
-        echo 'id="'. $reply['reply_id'] .'" data-track-label="1"><span class="nah-button-text">';
-
-        if (!empty($_SESSION['signed_in']) && checkNahAdded($reply['reply_id'], 1, $_SESSION['user_id'])) {
-            echo 'Un-nah.';
-        } else {
-            echo 'Nah...';
-        }
 
         echo '</span></button>';
 
-        echo '<div class="empathy symbol" yeahs="'. $yeah_amount['COUNT(yeah_by)']  .'" nahs="'. $nah_amount['COUNT(nah_by)']  .'" title="'. $yeah_amount['COUNT(yeah_by)'] .' '. ($yeah_amount['COUNT(yeah_by)'] == 1 ? 'Yeah' : 'Yeahs') .' / '. $nah_amount['COUNT(nah_by)'] .' '. ($nah_amount['COUNT(nah_by)'] == 1 ? 'Nah' : 'Nahs') .'"><span class="yeah-count">'. $yeahs .'</span></div>';
+        echo '<div class="empathy symbol" yeahs="'. $yeah_amount['COUNT(yeah_by)']  .'" title="'. $yeah_amount['COUNT(yeah_by)'] .' '. ($yeah_amount['COUNT(yeah_by)'] == 1 ? 'Yeah' : 'Yeahs'). $yeahs .'</span></div>';
     }
     echo '</div></li>';
 }

@@ -22,12 +22,6 @@ function userSidebarSetting($user, $page)
     $result_count = $yeah_count->get_result();
     $yeah_amount = $result_count->fetch_assoc();
 
-    $nah_count = $dbc->prepare('SELECT COUNT(nah_by) FROM nahs WHERE nah_by = ?');
-    $nah_count->bind_param('i', $user['user_id']);
-    $nah_count->execute();
-    $result_count = $nah_count->get_result();
-    $nah_amount = $result_count->fetch_assoc();
-
     echo '<div class="sidebar-setting sidebar-container">
     <div class="sidebar-post-menu">
       <a href="/users/'. $user['user_name'] .'/posts" class="sidebar-menu-post with-count symbol'. ($page == 1 ? ' selected' : '') .'">
@@ -48,15 +42,6 @@ function userSidebarSetting($user, $page)
           <span class="test-empathy-count">'. $yeah_amount['COUNT(yeah_by)'] .'</span>
         </span>
       </a>';
-
-    if ($user['user_id'] == $_SESSION['user_id']) {
-        echo '<a href="/users/'. $user['user_name'] .'/nahs" class="sidebar-menu-nahs with-count symbol'. ($page == 4 ? ' selected' : '') .'">
-    	<span>Nahs</span>
-    	<span class="post-count">
-    	<span class="test-empathy-count">'. $nah_amount['COUNT(nah_by)'] .'</span>
-        </span>
-        </a>';
-    }
       
     echo '</div></div>';
 }
