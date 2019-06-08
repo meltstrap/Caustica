@@ -74,8 +74,8 @@ function printHeader($on_page)
         echo '<link rel="stylesheet" type="text/css" href="/assets/css/dark.css">';
     }
 
-    if (isset($_COOKIE['cedar_color_theme'])) {
-        $HSL = explode(',', $_COOKIE['cedar_color_theme']);
+    if (isset($_COOKIE['caustica_color_theme'])) {
+        $HSL = explode(',', $_COOKIE['caustica_color_theme']);
         echo '<style>
         #global-menu li.selected a:before {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%);}
         #global-menu li.selected a {color: hsl('.$HSL[0].','.$HSL[1].'%,'.$HSL[2].'%) !important;}
