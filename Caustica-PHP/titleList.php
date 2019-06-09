@@ -27,10 +27,6 @@ $tabTitle = 'Caustica - Community List';
             <h2 class="label">What is Caustica?</h2>
             <p style="width: 90%; display: inine-block; padding: 10px;">Caustica is a Miiverse clone based on Caustica and forked by meltstrap. Caustica is open source: https://github.com/meltstrap/Caustica</p>
         </div>
-
-        <button type="button" onclick="$.pjax({url: '/titles/new', container: '#main-body'});" class="symbol button create-button" style="padding: 14px 60px;">
-            <span class="favorite-button-text">Create Community</span>
-        </button>
         <br>
     </div>
     <div class="community-main">

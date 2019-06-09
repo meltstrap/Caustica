@@ -459,9 +459,6 @@ function printTitleInfo($title)
         case 4:
             echo 'Switch Games';
             break;
-        case 6:
-                echo 'User-Created Community';
-            break;
         default:
             echo 'Special Community';
     }
