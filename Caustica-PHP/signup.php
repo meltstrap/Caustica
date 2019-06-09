@@ -95,7 +95,7 @@ if (empty($_SESSION['signed_in'])) {
 
     			$ch = curl_init();
     			curl_setopt_array($ch, array(
-    				CURLOPT_URL => 'https://ariankordi.net/seth/'. $_POST['face'],
+    				CURLOPT_URL => '[Insert NNID API URL here]'. $_POST['face'],
     				CURLOPT_HEADER => true,
     				CURLOPT_RETURNTRANSFER => true));
     			$response = curl_exec($ch);
