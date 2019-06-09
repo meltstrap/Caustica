@@ -16,7 +16,7 @@ function mysql_machine_broke()
 }
 
 
-$dbc = @mysqli_connect('localhost', 'root', '', 'caustica');
+$dbc = @mysqli_connect('localhost', 'root', '', 'caustica_db');
 if (!$dbc) {
     mysql_machine_broke();
 }
