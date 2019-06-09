@@ -504,7 +504,7 @@ function printReply($reply)
         $yeah_amount = $result_count->fetch_assoc();
 
 
-        $yeahs = $yeah_amount['COUNT(yeah_by)']];
+        $yeahs = $yeah_amount['COUNT(yeah_by)'];
 
 
 
