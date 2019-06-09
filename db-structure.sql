@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.5
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 10, 2018 at 08:28 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Host: localhost
+-- Generation Time: Jun 10, 2019 at 12:12 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.1.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cedar`
+-- Database: `caustica_db`
 --
 
 -- --------------------------------------------------------
@@ -75,20 +75,6 @@ CREATE TABLE `follows` (
   `follow_id` int(8) NOT NULL,
   `follow_by` int(8) NOT NULL,
   `follow_to` int(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `nahs`
---
-
-CREATE TABLE `nahs` (
-  `nah_id` int(8) NOT NULL,
-  `nah_post` int(8) NOT NULL,
-  `type` tinyint(1) NOT NULL,
-  `date_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `nah_by` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
@@ -248,13 +234,6 @@ ALTER TABLE `follows`
   ADD KEY `follow_to` (`follow_to`);
 
 --
--- Indexes for table `nahs`
---
-ALTER TABLE `nahs`
-  ADD PRIMARY KEY (`nah_id`),
-  ADD KEY `nah_by` (`nah_by`);
-
---
 -- Indexes for table `notifs`
 --
 ALTER TABLE `notifs`
@@ -336,12 +315,6 @@ ALTER TABLE `follows`
   MODIFY `follow_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `nahs`
---
-ALTER TABLE `nahs`
-  MODIFY `nah_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
 -- AUTO_INCREMENT for table `notifs`
 --
 ALTER TABLE `notifs`
@@ -395,12 +368,6 @@ ALTER TABLE `favorite_titles`
 ALTER TABLE `follows`
   ADD CONSTRAINT `follows_ibfk_1` FOREIGN KEY (`follow_by`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `follows_ibfk_2` FOREIGN KEY (`follow_to`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `nahs`
---
-ALTER TABLE `nahs`
-  ADD CONSTRAINT `nahs_ibfk_1` FOREIGN KEY (`nah_by`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `notifs`
