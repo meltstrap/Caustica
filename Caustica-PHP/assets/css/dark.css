@@ -389,7 +389,8 @@ form.search {
 }
 #footer {
     background: transparent;
-    text-align: center
+    text-align: center;
+    padding: 15px 0px 15px 0px;
 }
 #sidebar-profile-body #icon {
     border: 1px solid #000000;
