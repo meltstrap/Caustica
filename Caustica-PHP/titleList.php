@@ -42,7 +42,7 @@ if (!empty($_SESSION['signed_in'])) {
     $fav_titles_result = $get_fav_titles->get_result();
     if ($fav_titles_result->num_rows == 0) {
         echo '
-	  <div class="no-content no-content-favorites">
+	  <div id="homepage-favorites" class="no-content no-content-favorites">
 		<div>
 		  <p>Tap the ☆ button on a community\'s page to have it show up as a favorite community here.</p>
 		  <a href="/communities/favorites" class="favorite-community-link symbol"><span class="symbol-label">Show More</span></a>
