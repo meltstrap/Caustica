@@ -3,12 +3,12 @@ A Miiverse clone made in PHP and based on Cedar.
 
 ## Features
 
-- Miiverse-like experience (
+- Miiverse-like experience (done)
 
 - Themes (you heard that right, you can change the style of the UI)
 
 - Advanced drawing (made right)
-
+https://uiiverse.xyz/users/Proto/posts
 ## ETA
 
 On mid August I'll probably finish this.
