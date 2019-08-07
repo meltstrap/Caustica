@@ -72,6 +72,8 @@ function printHeader($on_page)
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">';
     if (isset($_COOKIE['dark-mode'])) {
         echo '<link rel="stylesheet" type="text/css" href="/assets/css/dark.css">';
+    } elseif (isset($_COOKIE['indigo'])) {
+        echo '<link rel="stylesheet" type="text/css" href="/assets/css/indigo.css">';
     }
 
     if (isset($_COOKIE['caustica_color_theme'])) {
@@ -178,9 +180,13 @@ function printHeader($on_page)
                     <menu id="global-my-menu" class="invisible none">
                         <li><a href="/settings/profile" class="symbol my-menu-profile-setting"><span>Profile Settings</span></a></li>
                         <li><a href="/settings/account" class="symbol my-menu-miiverse-setting"><span>Caustica Settings</span></a></li>
-                        <li><a href="#" class="symbol my-menu-dark-toggle"><span>Dark Mode</span></a></a></li>
                         <li><a href="/titles/<?= $user['title_id'] ?>" class="symbol my-menu-info"><span>Caustica Announcements</span></a></li>
                         <?= ($user['user_level'] > 0 ? '<li><a href="/admin_panel" class="symbol my-menu-miiverse-setting"><span>Admin Panel</span></a></li>' : '') ?>
+                        <select name="theme">
+                            <option value="light" selected>Light Theme</option>
+                            <option value="dark">Dark Theme</option>
+                            <option value="indigo">Indigo Theme</option>
+                        </select>
                         <li>
                             <form action="/logout" method="post" id="my-menu-logout" class="symbol">
                                 <input type="submit" value="Sign out">

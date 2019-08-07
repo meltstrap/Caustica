@@ -75,27 +75,25 @@ function bindEvents() {
     	e.stopImmediatePropagation();
     });
 
-    $('.my-menu-dark-toggle').off().on('click', function(e) {
-    	e.preventDefault();
-
-    	var v = document.cookie.match('(^|;) ?dark-mode=([^;]*)(;|$)');
-    	isDark = v ? v[2] : null;
-
-    	if (isDark == null) {
-    		var d = new Date();
-    		d.setTime(d.getTime() + (365*24*60*60*1000));
-    		var expires = "expires="+ d.toUTCString();
-    		document.cookie = "dark-mode=1;" + expires + ";path=/";
-
-    		$('link[href="/assets/css/style.css"]').after('<link rel="stylesheet" type="text/css" href="/assets/css/dark.css">');
-    		$('.empty-icon').children().attr('src', '/assets/img/dark-empty.png');
-    	} else {
-    		document.cookie = 'dark-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
-
-    		$('link[href="/assets/css/dark.css"]').remove();
-    		$('.empty-icon').children().attr('src', '/assets/img/empty.png');
-    	}
-    });
+	//does the theme magic.
+	if (e.currentTarget.value === 'light') {
+		document.cookie = 'dark-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+		document.cookie = 'indigo-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+		$('.empty-icon').children().attr('src', '/assets/img/empty.png');
+		window.location.reload();
+	} else if (e.currentTarget.value === 'dark') {
+		var expires = "expires="+ d.toUTCString();
+		document.cookie = 'indigo-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+		document.cookie = "dark-mode=1;" + expires + ";path=/";
+		$('.empty-icon').children().attr('src', '/assets/img/dark-empty.png');
+		window.location.reload();
+	} else if (e.currentTarget.value === 'indigo') {
+		var expires = "expires="+ d.toUTCString();
+		document.cookie = 'dark-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+		document.cookie = "indigo-mode=1;" + expires + ";path=/";
+		$('.empty-icon').children().attr('src', '/assets/img/dark-empty.png');
+		window.location.reload();
+	}
 
 
     // prevents opening a post when clicking a link
@@ -531,3 +529,7 @@ $(document).ready(function() {
 	bindEvents();
     getNotifs();
 });
+
+function newFunction() {
+	;
+}
