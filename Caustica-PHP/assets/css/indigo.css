@@ -80,10 +80,13 @@
     background-color: #250045;
 }
 .post-list .recent-reply-content {
-
     background-color: #250045;
     border: 1px black solid;
 
+}
+.guest #about {
+    background: #200040;
+    border-bottom: 2px solid #000000;
 }
 
 .post-list .recent-reply-content .recent-reply-read-more-container:hover {
@@ -329,11 +332,7 @@ h2.label {
     box-sizing: border-box;
     background-repeat: no-repeat;
 }
-.guest #about {
-    background: #200040;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #000000;
-}
+
 .guest #about img {
     width: 53%;
     margin-top: 20px;
