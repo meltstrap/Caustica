@@ -72,7 +72,7 @@ function printHeader($on_page)
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">';
     if (isset($_COOKIE['dark-mode'])) {
         echo '<link rel="stylesheet" type="text/css" href="/assets/css/dark.css">';
-    } elseif (isset($_COOKIE['indigo'])) {
+    } elseif (isset($_COOKIE['indigo-mode'])) {
         echo '<link rel="stylesheet" type="text/css" href="/assets/css/indigo.css">';
     }
 
