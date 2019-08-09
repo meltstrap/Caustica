@@ -3,8 +3,6 @@
 popup(title, text):
 	it does a popup box that looks like miiverses with an ok button to close it 
 
-	also fuck you
-
 
 */
 
@@ -85,12 +83,6 @@ function bindEvents() {
 		var expires = "expires="+ d.toUTCString();
 		document.cookie = 'indigo-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
 		document.cookie = "dark-mode=1;" + expires + ";path=/";
-		$('.empty-icon').children().attr('src', '/assets/img/dark-empty.png');
-		window.location.reload();
-	} else if (e.currentTarget.value === 'indigo') {
-		var expires = "expires="+ d.toUTCString();
-		document.cookie = 'dark-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
-		document.cookie = "indigo-mode=1;" + expires + ";path=/";
 		$('.empty-icon').children().attr('src', '/assets/img/dark-empty.png');
 		window.location.reload();
 	}
