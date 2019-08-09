@@ -17,8 +17,6 @@ On mid August I'll probably finish this.
 
 - EnergeticBark for the Cedar source code
 
-- joo for the Indigo CSS theme
-
 - The Uiiverse team for all your help
 
 - You for checking this out!
