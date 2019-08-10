@@ -69,10 +69,16 @@ if (empty($_SESSION['signed_in'])) {
                         <div style="text-align: center;">
                             <p style="display: inline;">Custom Image:</p>
                             <input name="face-type" type="radio" value="1" checked="" style="margin-left: 5px;display: inline;margin-right: 50px;margin-top: 10px;margin-bottom: 10px;">
+                            <p style="display: inline;">Mii:</p>
+                            <input name="face-type" type="radio" value="2" style="margin-left: 5px; display: inline;">
                         </div>
                         <div class="custom-face">
                             <p style="display: inline">Profile picture upload: </p>
                             <input type="file" name="face" style="max-width: 230;" accept="image/*">
+                        </div>
+                        <div class="nnid-face none">
+                            <p style="margin: 0;">Enter the NNID for the Mii you want to use.</p>
+                            <input type="text" name="face" maxlength="16" placeholder="NNID">
                         </div>
                     </lable>
                 </div>
@@ -85,19 +91,41 @@ if (empty($_SESSION['signed_in'])) {
     	if (isset($_POST['submit'])) {
     		$errors = array();
 
-    		if ($_POST['face-type'] == 1){
-                $img=$_FILES['face'];
-                if (empty($img['name'])) {  
-                    $errors = 'upload an image';
+    		if (($_POST['face-type'] == 2) && isset($_POST['face'])){
+
+    			$ch = curl_init();
+    			curl_setopt_array($ch, array(
+    				CURLOPT_URL => 'https://ariankordi.net/seth/'. $_POST['face'],
+    				CURLOPT_HEADER => true,
+    				CURLOPT_RETURNTRANSFER => true));
+    			$response = curl_exec($ch);
+
+                $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                if($httpCode == 404) {
+                    $errors = 'Invalid NNID.';
                 } else {
-                    $filename = $img['tmp_name'];
+                    $body = substr($response, curl_getinfo($ch, CURLINFO_HEADER_SIZE));
+                    $dom = new DOMDocument;
+                    $dom->loadHTML($body);
+                    $face = $body;
+    			}
+
+    			if(!empty($errors)){
+                    exit($errors[0]);
+                }
+    		} else {
+    			$img=$_FILES['face'];
+    			if (empty($img['name'])) {  
+    				$errors = 'upload an image';
+    			} else {
+    				$filename = $img['tmp_name'];
 
                     //imageUpload() returns 1 if it fails and the image URL if successful
                     $face = uploadImage($filename, 96, 96);
                     if ($face == 1) {
                         $errors = 'Image upload failed';
                     }
-                }
+    			}
     		}
 
     		if (strlen($_POST['username']) > 16) {
