@@ -72,6 +72,10 @@ function printHeader($on_page)
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">';
     if (isset($_COOKIE['dark-mode'])) {
         echo '<link rel="stylesheet" type="text/css" href="/assets/css/dark.css">';
+    } elseif (isset($_COOKIE['translucent-mode'])) {
+        echo '<link rel="stylesheet" type="text/css" href="/assets/css/translucent.css">'
+    } elseif (isset($_COOKIE['blur-mode'])) {
+        echo '<link rel="stylesheet" type="text/css" href="/assets/css/blur.css">'
     }
 
     if (isset($_COOKIE['caustica_color_theme'])) {
@@ -183,7 +187,8 @@ function printHeader($on_page)
                         <select name="theme">
                             <option value="light" selected>Light Theme</option>
                             <option value="dark">Dark Theme</option>
-                            <option value="indigo">Indigo Theme</option>
+                            <option value="translucent">Translucent Theme</option>
+                            <option value="blur">Blur Theme (WARNING: Requires high resources)</option>
                         </select>
                         <li>
                             <form action="/logout" method="post" id="my-menu-logout" class="symbol">
