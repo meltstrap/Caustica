@@ -182,14 +182,9 @@ function printHeader($on_page)
                     <menu id="global-my-menu" class="invisible none">
                         <li><a href="/settings/profile" class="symbol my-menu-profile-setting"><span>Profile Settings</span></a></li>
                         <li><a href="/settings/account" class="symbol my-menu-miiverse-setting"><span>Caustica Settings</span></a></li>
+                        <li><a href="/settings/theme" class="symbol my-menu-miiverse-setting"><span>Theme Settings</span></a></li>
                         <li><a href="/titles/<?= $user['title_id'] ?>" class="symbol my-menu-info"><span>Caustica Announcements</span></a></li>
                         <?= ($user['user_level'] > 0 ? '<li><a href="/admin_panel" class="symbol my-menu-miiverse-setting"><span>Admin Panel</span></a></li>' : '') ?>
-                        <select name="theme" onchange="themeChanger(this.value)">
-                            <option value="light" selected>Light Theme</option>
-                            <option value="dark">Dark Theme</option>
-                            <option value="translucent">Translucent Theme</option>
-                            <option value="blur">Blur Theme (WARNING: Requires high resources)</option>
-                        </select>
                         <li>
                             <form action="/logout" method="post" id="my-menu-logout" class="symbol">
                                 <input type="submit" value="Sign out">

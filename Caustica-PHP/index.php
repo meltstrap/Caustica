@@ -16,6 +16,7 @@ $router->addRoutes(array(
     array('GET|POST', '/settings/profile', 'settings.php', 'Settings'),
     array('GET|POST', '/activity', 'activity.php', 'Activity-feed'),
     array('GET|POST', '/settings/account', 'causticaSettings.php', 'Caustica-settings'),
+    array('GET|POST', '/settings/theme', 'theme_settings.php', 'Theme-settings'),
     array('GET|POST', '/admin_panel', 'admin/admin.php', 'Admin'),
     array('GET|POST', '/admin_panel/[*:action]', 'admin/admin.php', 'Admin-option'),
     array('GET|POST', '/titles/new', 'create_community.php', 'Create-community'),
