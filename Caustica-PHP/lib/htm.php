@@ -184,7 +184,7 @@ function printHeader($on_page)
                         <li><a href="/settings/account" class="symbol my-menu-miiverse-setting"><span>Caustica Settings</span></a></li>
                         <li><a href="/titles/<?= $user['title_id'] ?>" class="symbol my-menu-info"><span>Caustica Announcements</span></a></li>
                         <?= ($user['user_level'] > 0 ? '<li><a href="/admin_panel" class="symbol my-menu-miiverse-setting"><span>Admin Panel</span></a></li>' : '') ?>
-                        <select name="theme">
+                        <select name="theme" onchange="themeChanger(this.value)">
                             <option value="light" selected>Light Theme</option>
                             <option value="dark">Dark Theme</option>
                             <option value="translucent">Translucent Theme</option>
