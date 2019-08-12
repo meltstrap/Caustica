@@ -81,7 +81,7 @@ function printHeader($on_page)
     if (isset($_COOKIE['background'])) {
         echo  '<style>#wrapper, #image-header-content {
                 background-image: url('. $_COOKIE['background'] .') !important;
-            </style>';
+            } </style>';
     }
 
     if (isset($_COOKIE['caustica_color_theme'])) {
