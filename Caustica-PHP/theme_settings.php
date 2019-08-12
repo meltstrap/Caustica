@@ -19,12 +19,24 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 	<div class="main-column">
 	  <div class="post-list-outline">
 		<h2 class="label">Theme Settings</h2>
+			<b>    Set Theme</b>
 			<center>
+				</br>
 				<input id="light" onclick="lightTheme()" class="black-button" type="button" value="Light">
 				<input id="dark" onclick="darkTheme()" class="black-button" type="button" value="Dark">
 				<input id="translucent" onclick="translucentTheme()" class="black-button" type="button" value="Translucent">
 				<input id="blur" onclick="blurTheme()" class="black-button" type="button" value="Blur">
-	  		</center>
+				</br>
+			</center>
+			<b>    Set Background</b>
+			<center>
+				</br>
+				<input id="removeBackground" type="button" onclick="removeBackground()" class="black-button" value="Remove">
+				<input id="backgroundURL" type="text" placeholder="Background URL">
+				<input id="submitBackground" type="button" onclick="setBackground(backgroundURL.value)" class="black-button" value="Set">
+				</br>
+				</form>
+			</center>
 	  </div>
 	</div>
   </div>
