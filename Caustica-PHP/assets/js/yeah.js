@@ -93,6 +93,17 @@ function blurTheme() {
 	$('.empty-icon').children().attr('src', '/assets/img/dark-empty.png');
 	window.location.reload(false);
 }
+function setBackground(backgroundURL) {
+	document.cookie = 'background=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+	var expires = "expires="+ d.toUTCString();
+	document.cookie = "background=" + backgroundURL + ";" + expires + ";path=/";
+	window.location.reload(false)
+}
+
+function removeBackground() {
+	document.cookie = 'background=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+	window.location.reload(false)
+}
 
 function bindEvents() {
 	
