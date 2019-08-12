@@ -35,7 +35,6 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 				<input id="backgroundURL" type="text" placeholder="Background URL">
 				<input id="submitBackground" type="button" onclick="setBackground(backgroundURL.value)" class="black-button" value="Set">
 				</br>
-				</form>
 			</center>
 	  </div>
 	</div>
