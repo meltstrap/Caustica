@@ -78,6 +78,12 @@ function printHeader($on_page)
         echo '<link rel="stylesheet" type="text/css" href="/assets/css/blur.css">'
     }
 
+    if (isset($_COOKIE['background'])) {
+        echo  """<style>#wrapper, #image-header-content {
+            background-image: url(""". $_COOKIE['background'] .""") !important;
+            </style>""";
+    }
+
     if (isset($_COOKIE['caustica_color_theme'])) {
         $HSL = explode(',', $_COOKIE['caustica_color_theme']);
         echo '<style>
