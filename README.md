@@ -5,7 +5,7 @@ A Miiverse clone made in PHP and based on Cedar.
 
 - Miiverse-like experience (done)
 
-- Themes (you heard that right, you can change the style of the UI)
+- Themes (you heard that right, you can change the style of the UI) (Done)
 
 - Advanced drawing (made right)
 
