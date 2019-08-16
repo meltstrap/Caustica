@@ -455,14 +455,7 @@ div[style="background-color:white;text-align:right;position:fixed;width:100%;pad
  
     background: var(--theme, #8000ff);
 }
-#global-menu-login img {
-    cursor: pointer;
-    height: 35px;
-    background: url(https://cdn.discordapp.com/attachments/450074414600683544/594213848546934795/sign-in.png);
-    padding: 35px 125px 0 0;
-    box-sizing: border-box;
-    background-repeat: no-repeat;
-}
+
 .guest #about img {
     width: 53%;
     margin-top: 20px;
