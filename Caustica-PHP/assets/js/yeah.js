@@ -66,12 +66,14 @@ function lightTheme() {
 	document.cookie = 'dark-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
 	document.cookie = 'translucent-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
 	document.cookie = 'blur-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+	document.cookie = 'stripe-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
 	$('.empty-icon').children().attr('src', '/assets/img/empty.png');
 	window.location.reload(false);
 }
 function darkTheme() {
 	document.cookie = 'translucent-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
 	document.cookie = 'blur-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+	document.cookie = 'stripe-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
 	var expires = "expires="+ d.toUTCString();
 	document.cookie = "dark-mode=1;" + expires + ";path=/";
 	$('.empty-icon').children().attr('src', '/assets/img/dark-empty.png');
@@ -80,6 +82,7 @@ function darkTheme() {
 function translucentTheme() {
 	document.cookie = 'dark-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
 	document.cookie = 'blur-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+	document.cookie = 'stripe-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
 	var expires = "expires="+ d.toUTCString();
 	document.cookie = "translucent-mode=1;" + expires + ";path=/";
 	$('.empty-icon').children().attr('src', '/assets/img/dark-empty.png');
@@ -88,8 +91,18 @@ function translucentTheme() {
 function blurTheme() {
 	document.cookie = 'dark-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
 	document.cookie = 'translucent-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+	document.cookie = 'stripe-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
 	var expires = "expires="+ d.toUTCString();
 	document.cookie = "blur-mode=1;" + expires + ";path=/";
+	$('.empty-icon').children().attr('src', '/assets/img/dark-empty.png');
+	window.location.reload(false);
+}
+function stripeTheme() {
+	document.cookie = 'dark-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+	document.cookie = 'translucent-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+	document.cookie = 'blur-mode=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+	var expires = "expires="+ d.toUTCString();
+	document.cookie = "stripe-mode=1;" + expires + ";path=/";
 	$('.empty-icon').children().attr('src', '/assets/img/dark-empty.png');
 	window.location.reload(false);
 }

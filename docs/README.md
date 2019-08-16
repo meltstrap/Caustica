@@ -51,6 +51,8 @@ It's open source and pretty lightweight. (~1 MB)
 
 - EnergeticBark for the Cedar source code
 
+- jo for the stripe theme.
+
 - The Uiiverse team for all your help
 
 - You for checking this out!

@@ -76,6 +76,73 @@ function printHeader($on_page)
         echo '<link rel="stylesheet" type="text/css" href="/assets/css/translucent.css">'
     } elseif (isset($_COOKIE['blur-mode'])) {
         echo '<link rel="stylesheet" type="text/css" href="/assets/css/blur.css">'
+    } elseif (isset($_COOKIE['stripe-mode'])) {
+        echo '<link rel="stylesheet" type="text/css" href="/assets/css/stripe.css">';
+    }
+
+    if (isset($_COOKIE['stripe-color'])) {
+        echo '<script>/* GLOBAL VARIABLES */
+        var mainColor = "'. $_COOKIE['stripe-color'] .'"
+        var mainColorR = 0
+        var mainColorG = 0
+        var maincolorB = 0
+        var darkColor
+        var darkerColor
+       
+ 
+        function changeThemeColor() {
+           
+            /* Change hex to RGB for maths (sets 3 variables) */
+            hexToRgb(mainColor);  
+           
+           
+            /* Function does not output anything if value is 0, so this has to be done*/
+            if (!(mainColorR)) {mainColorR = 0;}
+            if (!(mainColorG)) {mainColorG = 0;}
+            if (!(mainColorB)) {mainColorB = 0;}
+           
+            /* Calculate darkColor & darkerColor */
+            darkColor = rgb2hex(mainColorR / 4, mainColorG / 4, mainColorB / 4);
+            darkerColor = rgb2hex(mainColorR / 8, mainColorG / 8, mainColorB / 8);
+           
+            /* Exception for #000000 */
+           
+            if (mainColor == "000000") { darkerColor = "#3f3f3f"; darkColor = "#1f1f1f" }
+           
+            /* Set CSS variables */
+            document.documentElement.style.setProperty("--theme", `rgb(${mainColorR}, ${mainColorG}, ${mainColorB})`);
+            document.documentElement.style.setProperty("--theme-dark", darkColor);
+            document.documentElement.style.setProperty("--theme-darker", darkerColor);
+           
+            /* so stuff doesnt complain bc theres no return statement */
+            return 0;
+            }
+           
+                    /* hex -> rgb */
+                     function hexToRgb(hex) {
+                          var bigint = parseInt(hex, 16);
+                          mainColorR = (bigint >> 16) & 255;
+                          mainColorG = (bigint >> 8) & 255;
+                          mainColorB = bigint & 255;
+                     
+                          return mainColorR + "," + mainColorG + "," + mainColorB;
+                      }
+                     
+                      /* rgb -> hex */
+                      function rgb2hex(red, green, blue) {
+                            var rgb = blue | (green << 8) | (red << 16);
+                            return "#" + (0x1000000 + rgb).toString(16).slice(1)
+                      }
+ 
+  function toDefault() {
+  document.documentElement.style.setProperty("--theme", "initial");
+  document.documentElement.style.setProperty("--theme-dark", "initial");
+  document.documentElement.style.setProperty("--theme-darker", "initial");
+  }
+
+  changeThemeColor();
+
+        </script>';
     }
 
     if (isset($_COOKIE['background'])) {

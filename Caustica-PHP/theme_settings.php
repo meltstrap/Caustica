@@ -26,6 +26,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 				<input id="dark" onclick="darkTheme()" class="black-button" type="button" value="Dark">
 				<input id="translucent" onclick="translucentTheme()" class="black-button" type="button" value="Translucent">
 				<input id="blur" onclick="blurTheme()" class="black-button" type="button" value="Blur">
+				<input id="stripe" onclick="stripeTheme()" class="black-button" type="button" value="Stripe">
 				</br>
 			</center>
 			<b>    Set Background</b>
@@ -36,8 +37,17 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 				<input id="submitBackground" type="button" onclick="setBackground(backgroundURL.value)" class="black-button" value="Set">
 				</br>
 			</center>
+			';
+			if (isset($_COOKIE['stripe-mode'])) {
+				echo '<b>    Set Color</b>
+				<script src="/assets/js/color.js"></script>
+				<center>
+					<input type="color" class="black-button" value="#ffffff">
+				</center>';
+			}
+		  echo '
+		  </div>
+		</div>
 	  </div>
-	</div>
-  </div>
-</div>
-';
+	</div>';
+;
