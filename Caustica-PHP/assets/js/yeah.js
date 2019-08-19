@@ -38,6 +38,57 @@ function popup(title, text) {
 	bindEvents();
 }
 
+function drawDialog() {
+	window.addEventListener("load", () => {
+		const canvas = document.querySelector("#canvas")
+		const ctx = canvas.getContext("2d");
+		
+		let painting = false;
+
+		function startPosition(){
+			painting = true;
+		}
+		function endPosition(){
+			painting = false;
+			ctx.beginPath();
+		}
+		function draw(e) {
+			if(!painting) return;
+			ctx.lineWidth = 21;
+			ctx.lineCap = "round";
+			ctx.lineTo(e.clientX, e.clientY);
+			ctx.stroke();
+			ctx.beginpath();
+			ctx.moveTo(e.clientX, e.clientY);
+		}  
+		
+		canvas.addEventListener('mousedown', startPosition);
+		canvas.addEventListener('mouseup', endPosition)
+		canvas.addEventListener("mousemove", draw)
+
+	});
+	$('body').append('<div class="dialog active-dialog modal-window-open mask">\
+		<div class="dialog-inner">\
+			<div class="window">\
+			<head>\
+				<style type="text/css">\
+				#canvas {\
+					border:1px solid black;\
+				}\
+				</style>\
+			</head>\
+				<h1 class="window-title">Drawing Tool</h1>\
+				<div class="window-body">\
+					<p class="window-body-content"><canvas id="canvas" width="600" height="300"></canvas></p>\
+					<div class="form-buttons">\
+						<button class="ok-button black-button" type="button" data-event-type="ok">Post</button>\
+					</div>\
+				</div>\
+			</div>\
+		</div></div>');
+	bindEvents();
+}
+
 function getNotifs() {
 	$.getJSON('/check_update.json', function(data) {
 		if (data.notifs.unread_count > 0) {
