@@ -42,7 +42,8 @@ function drawDialog() {
 	window.addEventListener("load", () => {
 		const canvas = document.querySelector("#canvas")
 		const ctx = canvas.getContext("2d");
-		
+		var brushSize = 12;
+
 		let painting = false;
 
 		function startPosition(){
@@ -54,20 +55,35 @@ function drawDialog() {
 		}
 		function draw(e) {
 			if(!painting) return;
-			ctx.lineWidth = 21;
+			ctx.lineWidth = brushSize;
 			ctx.lineCap = "round";
 			ctx.lineTo(e.clientX, e.clientY);
 			ctx.stroke();
 			ctx.beginpath();
 			ctx.moveTo(e.clientX, e.clientY);
-		}  
+		}
+
+		function color(color) {
+			ctx.strokeStyle = color;
+		}
+
+		function strokeSize(size) {
+			if(size == "small") {
+				brushSize = 8; 
+			} else if (size == "medium") {
+				brushSize = 16;
+			} else if (size == "large") {
+				brushSize = 32;
+			}
+		}
 		
 		canvas.addEventListener('mousedown', startPosition);
 		canvas.addEventListener('mouseup', endPosition)
 		canvas.addEventListener("mousemove", draw)
 
 	});
-	$('body').append('<div class="dialog active-dialog modal-window-open mask">\
+	$('body').append('<script src="/assets/js/pressure.min.js"></script>">\
+	<div class="dialog active-dialog modal-window-open mask">\
 		<div class="dialog-inner">\
 			<div class="window">\
 			<head>\
