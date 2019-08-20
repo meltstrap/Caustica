@@ -19,6 +19,8 @@ On mid August I'll probably finish this.
 
 - jo for the stripe theme.
 
+- stuyam for his pressure library (https://github.com/stuyam/pressure)
+
 - The Uiiverse team for all your help
 
 - You for checking this out!
