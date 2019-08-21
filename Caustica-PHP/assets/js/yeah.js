@@ -47,6 +47,7 @@ function drawDialog() {
 
 		function startPosition(){
 			painting = true;
+			draw(e);
 			canvas.style.cursor = "pointer";
 		}
 		function endPosition(){
