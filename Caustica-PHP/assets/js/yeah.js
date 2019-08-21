@@ -43,7 +43,9 @@ function drawDialog() {
 		const canvas = document.querySelector("#canvas")
 		const ctx = canvas.getContext("2d");
 		var brushSize = 12;
+		var tool = "brush";
 		let painting = false;
+
 
 		function startPosition(){
 			painting = true;
@@ -67,6 +69,15 @@ function drawDialog() {
 
 		function color(colorSelected) {
 			ctx.strokeStyle = colorSelected;
+			ctx.fillStyle = colorSelected;
+
+			ctx.fillStyle = context.strokeStyle;
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
+		}
+
+		function onFill() {
+			context.closePath();
+			context.beginPath();
 		}
 
 		function strokeSize(size) {
@@ -83,10 +94,15 @@ function drawDialog() {
 			}
 		}
 		
-		canvas.addEventListener('mousedown', startPosition);
-		canvas.addEventListener('mouseup', endPosition)
-		canvas.addEventListener("mousemove", draw)
+		if (tool == "brush") {
+			canvas.addEventListener('mousedown', startPosition);
+			canvas.addEventListener('mouseup', endPosition);
+			canvas.addEventListener("mousemove", draw);
+		} else if (tool == "eraser") {
 
+		} else if (tool == "fill") {
+			canvas.addEventListener('click');
+		}
 	});
 	$('body').append('<script src="/assets/js/pressure.min.js"></script>">\
 	<div class="dialog active-dialog modal-window-open mask">\
