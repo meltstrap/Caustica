@@ -1,6 +1,8 @@
 <?php
 require_once('lib/htm.php');
 
+$drawing = ""
+
 if (empty($_SESSION['signed_in'])) {
 	return;
 }
@@ -78,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST'){
 			<textarea name="text_data" class="textarea-text textarea" maxlength="800" placeholder="Share your thoughts in a post to this community."></textarea>
 		</div>
 		Image upload: <input type="file" name="image" accept="image/*">
+		<button class="black-button" onclick="drawDialog()">Draw</button>
 		<div class="form-buttons">
 			<input type="submit" name="submit" class="black-button post-button disabled" value="Send" disabled="">
 		</div>
@@ -99,8 +102,11 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST'){
 	} 
 
 	$img=$_FILES['image'];
+	
 
 	if(!empty($img['name'])){
+		$img=$drawing;
+	} elseif(!empty($drawing)) {
 		$filename = $img['tmp_name'];
 
 		//imageUpload() returns 1 if it fails and the image URL if successful
