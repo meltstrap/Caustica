@@ -139,7 +139,8 @@ function drawDialog() {
 					</nav><p></p>\
 					<button id="small" class="black-button" onclick="strokeSize("small")" value="S">\
 					<button id="medium" class="black-button" onclick="strokeSize("medium")" value="M">\
-					<button id="large" class="black-button" onclick="strokeSize("large")" value="L">\
+              <button id="large" class="black-button" onclick="strokeSize("large")" value="L">\
+              <button id="pressure" class="black-button" onclick="strokeSize("pressure")" value="Pressure">\
 					<canvas id="canvas" width="600" height="300"></canvas></p>\
 					<div class="form-buttons">\
 						<button class="ok-button black-button" type="button" onclick="saveImage()" data-event-type="ok">Done</button>\
