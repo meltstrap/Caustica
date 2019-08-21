@@ -1,6 +1,8 @@
 <?php
 require_once('lib/htm.php');
 
+$drawing = ""
+
 if (empty($_SESSION['signed_in'])) {
 	return;
 }
@@ -24,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 		echo '<div class="feeling-selector js-feeling-selector test-feeling-selector"><label class="symbol feeling-button feeling-button-normal checked"><input type="radio" name="feeling_id" value="0" checked=""><span class="symbol-label">normal</span></label><label class="symbol feeling-button feeling-button-happy"><input type="radio" name="feeling_id" value="1"><span class="symbol-label">happy</span></label><label class="symbol feeling-button feeling-button-like"><input type="radio" name="feeling_id" value="2"><span class="symbol-label">like</span></label><label class="symbol feeling-button feeling-button-surprised"><input type="radio" name="feeling_id" value="3"><span class="symbol-label">surprised</span></label><label class="symbol feeling-button feeling-button-frustrated"><input type="radio" name="feeling_id" value="4"><span class="symbol-label">frustrated</span></label><label class="symbol feeling-button feeling-button-puzzled"><input type="radio" name="feeling_id" value="5"><span class="symbol-label">puzzled</span></label></div>';
 	}
 
-	echo '<div class="textarea-container"><textarea name="text_data" class="textarea-text textarea" maxlength="800" placeholder="Add a comment here."></textarea></div>Image upload: <input type="file" name="image" accept="image/*"><div class="form-buttons"><input type="submit" name="submit" class="black-button post-button disabled" value="Send" disabled=""></div></form>';
+	echo '<div class="textarea-container"><textarea name="text_data" class="textarea-text textarea" maxlength="800" placeholder="Add a comment here."></textarea></div>Image upload: <input type="file" name="image" accept="image/*"><button class="black-button" onclick="drawDialog()">Draw</button><div class="form-buttons"><input type="submit" name="submit" class="black-button post-button disabled" value="Send" disabled=""></div></form>';
 } else {
 	$errors = array();
 	$image = NULL;
@@ -44,12 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 	$img=$_FILES['image'];
 
 	if(!empty($img['name'])){
+		$img=$drawing;
+	} elseif(!empty($drawing)) {
 		$filename = $img['tmp_name'];
 
 		//imageUpload() returns 1 if it fails and the image URL if successful
 		$image = uploadImage($filename, NULL, NULL);
 		if ($image == 1) {
-			$errors[] = 'Image upload failed';
+			$errors[] = 'Image upload failed.';
 		}
 	}
 
