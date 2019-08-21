@@ -1,17 +1,14 @@
 # Caustica
-A Miiverse clone made in PHP and based on Cedar.
+A Miiverse clone made in PHP and based on Cedar. Now finally being released.
 
 ## Features
 
-- Miiverse-like experience (done)
+- Miiverse-like experience.
 
-- Themes (you heard that right, you can change the style of the UI) (done)
+- Themes (you heard that right, you can change the style of the UI)
 
 - Advanced drawing (made right)
 
-## ETA
-
-On mid August I'll probably finish this.
 
 ## Thanks to
 
