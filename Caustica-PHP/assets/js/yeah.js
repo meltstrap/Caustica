@@ -43,14 +43,15 @@ function drawDialog() {
 		const canvas = document.querySelector("#canvas")
 		const ctx = canvas.getContext("2d");
 		var brushSize = 12;
-
 		let painting = false;
 
 		function startPosition(){
 			painting = true;
+			canvas.style.cursor = "pointer";
 		}
 		function endPosition(){
 			painting = false;
+			canvas.style.cursor = "default";
 			ctx.beginPath();
 		}
 		function draw(e) {
