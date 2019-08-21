@@ -45,9 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 
 	$img=$_FILES['image'];
 
-	if(!empty($img['name'])){
+	if(!empty($drawing)){
 		$img=$drawing;
-	} elseif(!empty($drawing)) {
+	} elseif(!empty($img['name'])) {
 		$filename = $img['tmp_name'];
 
 		//imageUpload() returns 1 if it fails and the image URL if successful
