@@ -70,14 +70,13 @@ function drawDialog() {
 		function color(colorSelected) {
 			ctx.strokeStyle = colorSelected;
 			ctx.fillStyle = colorSelected;
-
-			ctx.fillStyle = context.strokeStyle;
-			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		}
 
 		function onFill() {
-			context.closePath();
-			context.beginPath();
+			ctx.closePath();
+			ctx.beginPath();
+			ctx.fillStyle = context.strokeStyle;
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		}
 
 		function strokeSize(size) {
@@ -101,7 +100,7 @@ function drawDialog() {
 		} else if (tool == "eraser") {
 
 		} else if (tool == "fill") {
-			canvas.addEventListener('click');
+			canvas.addEventListener('click', onFill);
 		}
 	});
 	$('body').append('<script src="/assets/js/pressure.min.js"></script>">\
