@@ -44,6 +44,7 @@ function drawDialog() {
 		const ctx = canvas.getContext("2d");
 		var brushSize = 12;
 		var tool = "brush";
+		var finalImage = "<?php echo $drawing; ?>";
 		let painting = false;
 
 
@@ -101,6 +102,10 @@ function drawDialog() {
 				});
 			}
 		}
+
+		function saveImage() {
+			finalImage = ctx.toDataURL;
+		}
 		
 		if (tool == "brush") {
 			canvas.addEventListener('mousedown', startPosition);
@@ -110,11 +115,12 @@ function drawDialog() {
 			canvas.addEventListener('click', onFill);
 		}
 	});
-	$('body').append('<script src="/assets/js/pressure.min.js"></script>">\
-	<div class="dialog active-dialog modal-window-open mask">\
+	$('body').append('<div class="dialog active-dialog modal-window-open mask">\
 		<div class="dialog-inner">\
 			<div class="window">\
 			<head>\
+				<script src="/assets/js/pressure.min.js"></script>">\
+				<script src="https://kit.fontawesome.com/7eb5e220c4.js"></script>\
 				<style type="text/css">\
 				#canvas {\
 					border:1px solid black;\
@@ -123,9 +129,20 @@ function drawDialog() {
 			</head>\
 				<h1 class="window-title">Drawing Tool</h1>\
 				<div class="window-body">\
-					<p class="window-body-content"><canvas id="canvas" width="600" height="300"></canvas></p>\
+					<p class="window-body-content">\
+					<nav>\
+						<button id="clear" class="fas fa-trash-alt black-button" onclick="clear()"></button>\
+						<button id="brush" class="fas fa-paint-brush black-button" onclick="tool = "brush""></button>\
+						<button id="eraser" class="fas fa-eraser black-button" onclick="eraser()"></button>\
+						<button id="fill" class="fas fa-fill black-button" onclick="tool = "fill""></button>\
+						<input id="colorPicker" type="color" class="black-button" onselect="color(this.value)"></input>\
+					</nav><p></p>\
+					<button id="small" class="black-button" onclick="strokeSize("small")" value="S">\
+					<button id="medium" class="black-button" onclick="strokeSize("medium")" value="M">\
+					<button id="large" class="black-button" onclick="strokeSize("large")" value="L">\
+					<canvas id="canvas" width="600" height="300"></canvas></p>\
 					<div class="form-buttons">\
-						<button class="ok-button black-button" type="button" data-event-type="ok">Post</button>\
+						<button class="ok-button black-button" type="button" onclick="saveImage()" data-event-type="ok">Post</button>\
 					</div>\
 				</div>\
 			</div>\
