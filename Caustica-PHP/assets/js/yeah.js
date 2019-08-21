@@ -63,8 +63,8 @@ function drawDialog() {
 			ctx.moveTo(e.clientX, e.clientY);
 		}
 
-		function color(color) {
-			ctx.strokeStyle = color;
+		function color(colorSelected) {
+			ctx.strokeStyle = colorSelected;
 		}
 
 		function strokeSize(size) {
@@ -74,6 +74,10 @@ function drawDialog() {
 				brushSize = 16;
 			} else if (size == "large") {
 				brushSize = 32;
+			} else if (size == "pressure") {
+				Pressure.set('#canvas', {
+					change: brushSize = force * 32
+				});
 			}
 		}
 		
