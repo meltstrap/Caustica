@@ -72,6 +72,11 @@ function drawDialog() {
 			ctx.fillStyle = colorSelected;
 		}
 
+		function eraser() {
+			ctx.strokeStyle = rgba(0, 0, 0 ,0);
+			ctx.fillStyle = rgba(0, 0, 0 ,0);
+		}
+
 		function onFill() {
 			ctx.closePath();
 			ctx.beginPath();
@@ -97,8 +102,6 @@ function drawDialog() {
 			canvas.addEventListener('mousedown', startPosition);
 			canvas.addEventListener('mouseup', endPosition);
 			canvas.addEventListener("mousemove", draw);
-		} else if (tool == "eraser") {
-
 		} else if (tool == "fill") {
 			canvas.addEventListener('click', onFill);
 		}
