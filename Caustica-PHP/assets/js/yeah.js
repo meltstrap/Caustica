@@ -72,6 +72,10 @@ function drawDialog() {
 			ctx.fillStyle = colorSelected;
 		}
 
+		function clear() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height)	
+		}
+
 		function eraser() {
 			ctx.strokeStyle = rgba(0, 0, 0 ,0);
 			ctx.fillStyle = rgba(0, 0, 0 ,0);
