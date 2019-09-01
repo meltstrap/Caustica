@@ -47,7 +47,17 @@ function drawDialog() {
 		var finalImage = "<?php echo $drawing; ?>";
 		let painting = false;
 
-
+		function getOffset( el ) {
+			var _x = 0;
+			var _y = 0;
+			while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+				_x += el.offsetLeft - el.scrollLeft;
+				_y += el.offsetTop - el.scrollTop;
+				el = el.offsetParent;
+			}
+			return { top: _y, left: _x };
+		}
+		
 		function startPosition(){
 			painting = true;
 			draw(e);
@@ -65,7 +75,7 @@ function drawDialog() {
 			ctx.lineTo(e.clientX, e.clientY);
 			ctx.stroke();
 			ctx.beginpath();
-			ctx.moveTo(e.clientX, e.clientY);
+			ctx.moveTo(e.clientX - getOffset( document.getElementById('#canvas') ).left, e.clientY - getOffset( document.getElementById('#canvas') ).top);
 		}
 
 		function color(colorSelected) {
